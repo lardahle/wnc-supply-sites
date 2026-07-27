@@ -15,7 +15,7 @@
 - Demo data only — no calls to `/rcommons/api/*` or `/volunteer/*` from this feature. No new Java code.
 - Skill strings used anywhere in demo data or filters must exactly match the taxonomy already defined in `onboarding.html:136-164` (26 strings, listed in Task 4) — do not invent new skill names.
 - Character-class strings used in demo data must exactly match keys in the `hoverContent` object in `data.js` (16 strings) — not the mismatched `['Caregiver', 'Builder']` shorthand used in profile.js's fallback demo profile, which is a pre-existing inconsistency out of scope here.
-- Run the app with the `run` skill (or `./mvnw spring-boot:run` from `webapp/`, default `server.port=8080`) and verify in a real browser at each checkpoint — do not skip verification steps or mark them done without actually loading the page.
+- Run the app with the `run` skill (or `./gradlew bootRun` from `webapp/`, default `server.port=8080`) and verify in a real browser at each checkpoint — do not skip verification steps or mark them done without actually loading the page.
 
 ---
 
@@ -66,7 +66,7 @@ function setDisplayIfPresent(id, value) {
 
 - [ ] **Step 3: Verify in browser**
 
-Start the app (`run` skill, or `./mvnw spring-boot:run` from `webapp/`), open `http://localhost:8080/rcommons/dashboard.html`, open the browser devtools console, and click the "Org" tab (top of sidebar).
+Start the app (`run` skill, or `./gradlew bootRun` from `webapp/`), open `http://localhost:8080/rcommons/dashboard.html`, open the browser devtools console, and click the "Org" tab (top of sidebar).
 
 Expected: the page navigates to "Shifts & signups" (the org-shifts page), the sidebar swaps to the org-side nav ("Shift management" section), and there are no errors in the console.
 
