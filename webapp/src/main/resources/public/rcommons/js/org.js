@@ -101,17 +101,22 @@ function switchView(view) {
   });
 
   var isOrg = view === 'org';
-  document.getElementById('nav-view-volunteer').style.display = isOrg ? 'none' : '';
-  document.getElementById('nav-view-org').style.display       = isOrg ? '' : 'none';
+  setDisplayIfPresent('nav-view-volunteer', isOrg ? 'none' : '');
+  setDisplayIfPresent('nav-view-org',       isOrg ? '' : 'none');
 
   // Mobile bottom nav + "More" sheet swap the same way the sidebar does —
-  // the sidebar itself is hidden entirely below the 768px breakpoint.
-  document.getElementById('mob-nav-volunteer').style.display  = isOrg ? 'none' : 'contents';
-  document.getElementById('mob-nav-org').style.display        = isOrg ? 'contents' : 'none';
-  document.getElementById('mob-more-volunteer').style.display = isOrg ? 'none' : 'contents';
-  document.getElementById('mob-more-org').style.display       = isOrg ? 'contents' : 'none';
+  // guarded because these ids don't exist yet (no mobile org nav built).
+  setDisplayIfPresent('mob-nav-volunteer',  isOrg ? 'none' : 'contents');
+  setDisplayIfPresent('mob-nav-org',        isOrg ? 'contents' : 'none');
+  setDisplayIfPresent('mob-more-volunteer', isOrg ? 'none' : 'contents');
+  setDisplayIfPresent('mob-more-org',       isOrg ? 'contents' : 'none');
 
   navTo(isOrg ? 'org-shifts' : 'dashboard');
+}
+
+function setDisplayIfPresent(id, value) {
+  var el = document.getElementById(id);
+  if (el) el.style.display = value;
 }
 
 function goToCreateEvent() {
