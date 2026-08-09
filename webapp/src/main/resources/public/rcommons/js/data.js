@@ -70,6 +70,68 @@ var DEMO_OPPS = [
 
 var DEMO_SIGNUPS = [];
 
+// ─── VOLUNTEERS (org-side roster) ──────────────────────────────────────────
+// Roster membership for a given org = has a DEMO_SIGNUPS entry against one
+// of DEMO_SHIFTS, OR discoverable:true. vol-9 has neither, on purpose — a
+// negative control proving volunteers without history or opt-in never show.
+
+var DEMO_VOLUNTEERS = [
+  {
+    id: 'vol-1', name: 'Maria Gonzalez', initials: 'MG', phone: '828-555-0101',
+    skills: ['Cooking / Food prep', 'Driving / Transport'],
+    classes: ['Sustainer'], hoursTotal: 42, discoverable: false,
+    availability: { sat_08: true, sat_09: true, sat_10: true, sat_11: true, sun_08: true, sun_09: true, sun_10: true, sun_11: true }
+  },
+  {
+    id: 'vol-2', name: 'Devon Price', initials: 'DP', phone: '828-555-0102',
+    skills: ['Warehouse / Logistics', 'Heavy lifting'],
+    classes: ['Implementer'], hoursTotal: 18, discoverable: false,
+    availability: { mon_17: true, mon_18: true, mon_19: true, wed_17: true, wed_18: true, wed_19: true, fri_17: true, fri_18: true, fri_19: true }
+  },
+  {
+    id: 'vol-3', name: 'Aaliyah Ferris', initials: 'AF', phone: '828-555-0103',
+    skills: ['EMT / Medical', 'First aid / CPR'],
+    classes: ['Guardian / Steward / Protector'], hoursTotal: 6, discoverable: false,
+    availability: { tue_09: true, tue_10: true, tue_11: true, tue_12: true, thu_09: true, thu_10: true, thu_11: true, thu_12: true }
+  },
+  {
+    id: 'vol-4', name: 'Sam Okafor', initials: 'SO', phone: '828-555-0104',
+    skills: ['Electrical', 'Construction / Carpentry', 'Forklift / Heavy equipment'],
+    classes: ['Implementer'], hoursTotal: 65, discoverable: true,
+    availability: { sat_09: true, sat_10: true, sat_11: true, sat_12: true, sat_13: true, sat_14: true, sat_15: true, sat_16: true }
+  },
+  {
+    id: 'vol-5', name: 'Priya Natarajan', initials: 'PN', phone: '828-555-0105',
+    skills: ['Grant writing', 'Fundraising', 'Event coordination'],
+    classes: ['Resource Mobilizer'], hoursTotal: 12, discoverable: true,
+    availability: { mon_08: true, tue_08: true, wed_08: true, thu_08: true, fri_08: true }
+  },
+  {
+    id: 'vol-6', name: 'Jamal Whitfield', initials: 'JW', phone: '828-555-0106',
+    skills: ['Counseling / Mental health', 'Teaching / Tutoring', 'Spanish'],
+    classes: ['Sensemaker / Educator'], hoursTotal: 30, discoverable: true,
+    availability: { sun_10: true, sun_11: true, sun_12: true, wed_18: true }
+  },
+  {
+    id: 'vol-7', name: 'Ellen Marsh', initials: 'EM', phone: '828-555-0107',
+    skills: ['Elder care', 'Childcare', 'Cooking / Food prep'],
+    classes: ['Caregiver / Nourisher'], hoursTotal: 55, discoverable: true,
+    availability: { mon_06: true, mon_07: true, tue_06: true, tue_07: true, wed_06: true, wed_07: true, thu_06: true, thu_07: true, fri_06: true, fri_07: true }
+  },
+  {
+    id: 'vol-8', name: 'Ricky Tran', initials: 'RT', phone: '828-555-0108',
+    skills: ['Tech / Web development', 'Photography / Video', 'Social media'],
+    classes: ['Edgewalker'], hoursTotal: 8, discoverable: true,
+    availability: { sat_12: true, sat_13: true, sat_14: true, sat_15: true, sat_16: true, sun_12: true, sun_13: true, sun_14: true, sun_15: true, sun_16: true }
+  },
+  {
+    id: 'vol-9', name: 'Chris Bowden', initials: 'CB', phone: '828-555-0109',
+    skills: ['Translation / Interpreter', 'Legal'],
+    classes: ['Strategic Challenger'], hoursTotal: 0, discoverable: false,
+    availability: {}
+  }
+];
+
 // hover content for role cards in onboarding.html
 
 const hoverContent = {

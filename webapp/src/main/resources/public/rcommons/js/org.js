@@ -35,9 +35,9 @@ var DEMO_SHIFTS = [
 ];
 
 var DEMO_SIGNUPS = [
-  { id: 1, shiftId: 'shift-1', volunteerName: 'Maria Gonzalez', notes: 'Bringing my own gloves', status: 'CONFIRMED' },
-  { id: 2, shiftId: 'shift-1', volunteerName: 'Devon Price',    notes: '',                        status: 'CONFIRMED' },
-  { id: 3, shiftId: 'shift-2', volunteerName: 'Aaliyah Ferris', notes: 'Can only stay until noon', status: 'CANCELED' }
+  { id: 1, shiftId: 'shift-1', volunteerId: 'vol-1', volunteerName: 'Maria Gonzalez', notes: 'Bringing my own gloves', status: 'CONFIRMED' },
+  { id: 2, shiftId: 'shift-1', volunteerId: 'vol-2', volunteerName: 'Devon Price',    notes: '',                        status: 'CONFIRMED' },
+  { id: 3, shiftId: 'shift-2', volunteerId: 'vol-3', volunteerName: 'Aaliyah Ferris', notes: 'Can only stay until noon', status: 'CANCELED' }
 ];
 
 var CATEGORY_META = {
