@@ -4,7 +4,7 @@
 
 // ─── NAVIGATION ─────────────────────────────────────────────────────────────
 
-var PAGES = ['dashboard','opportunities','needs','hours','map','messages','orgs','profile','background','org-shifts','org-create','calendar','org-calendar'];
+var PAGES = ['dashboard','opportunities','needs','hours','map','messages','orgs','profile','background','org-shifts','org-create','calendar','org-calendar','org-volunteers'];
 
 var MOB_MORE_PAGES = ['opportunities', 'hours', 'calendar', 'orgs', 'profile', 'background', 'org-create'];
 

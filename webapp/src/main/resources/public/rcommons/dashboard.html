@@ -127,6 +127,10 @@
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="14" x2="7" y2="14"/><line x1="12" y1="14" x2="12" y2="14"/><line x1="17" y1="14" x2="17" y2="14"/></svg>
         Calendar
       </button>
+      <button class="nav-item" onclick="navTo('org-volunteers')" id="nav-org-volunteers">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Volunteers
+      </button>
     </div>
     <div class="sidebar-footer">
       <div class="role-chip" id="org-scope-chip">
@@ -665,6 +669,33 @@
     </div>
   </div>
 
+  <div class="page" id="page-org-volunteers">
+    <div class="page-header">
+      <div><div class="page-title">Volunteers</div><div class="page-sub">People who've helped or want to help with your org</div></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Filter by skill</div>
+        <div class="filter-count" id="volunteer-roster-count">Loading…</div>
+      </div>
+      <div id="volunteer-skill-filters" style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;"></div>
+      <div class="filter-row">
+        <select class="filter-select" id="volunteer-avail-filter" onchange="renderVolunteerRoster()">
+          <option value="">All availability</option>
+          <option value="sun">Available Sunday</option>
+          <option value="mon">Available Monday</option>
+          <option value="tue">Available Tuesday</option>
+          <option value="wed">Available Wednesday</option>
+          <option value="thu">Available Thursday</option>
+          <option value="fri">Available Friday</option>
+          <option value="sat">Available Saturday</option>
+        </select>
+        <button class="btn btn-secondary btn-sm" onclick="clearVolunteerFilters()">Clear filters</button>
+      </div>
+      <div class="opp-list" id="volunteer-roster-list"></div>
+    </div>
+  </div>
+
 </main>
 </div>
 </div>
@@ -869,6 +900,7 @@
 <script src="js/modals.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/org.js"></script>
+<script src="js/roster.js"></script>
 <script src="js/calendar.js"></script>
 
 </body>
