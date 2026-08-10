@@ -310,6 +310,7 @@ function cancelOrgSignup(signupId) {
   s.status = 'CANCELED';
   showToast('Signup canceled.');
   renderOrgShifts();
+  renderVolunteerRoster();
 }
 
 function confirmOrgSignup(signupId) {
@@ -318,6 +319,7 @@ function confirmOrgSignup(signupId) {
   s.status = 'CONFIRMED';
   showToast('Signup confirmed.');
   renderOrgShifts();
+  renderVolunteerRoster();
 }
 
 // TODO: confirming/un-confirming a shift here should notify signed-up
@@ -793,6 +795,7 @@ function cancelEvent(eventId) {
   closeEditModal();
   renderOrgShifts();
   renderOrgCalendar();
+  renderVolunteerRoster();
   renderVolCalendar();
 }
 
@@ -807,6 +810,7 @@ function uncancelEvent(eventId) {
   closeEditModal();
   renderOrgShifts();
   renderOrgCalendar();
+  renderVolunteerRoster();
   renderVolCalendar();
 }
 
@@ -871,6 +875,7 @@ function saveEditModal() {
   closeEditModal();
   renderOrgShifts();
   renderOrgCalendar();
+  renderVolunteerRoster();
   renderVolCalendar();
 }
 

@@ -7,6 +7,15 @@
  * discoverable:true. See DEMO_VOLUNTEERS in data.js.
  */
 
+// TODO: once a real `volunteer` table/API exists, this file's DEMO_VOLUNTEERS
+// dependency goes away. See docs/superpowers/specs/2026-07-26-org-volunteer-roster-design.md
+// for the membership-gate rationale and docs/superpowers/plans/2026-07-26-org-volunteer-roster.md
+// for what was deferred. Two things the real integration will need that this
+// demo version doesn't: (1) an org-identity field so signups/hours are
+// actually scoped to the viewing org, not global across all orgs; (2) HTML
+// escaping for all volunteer-controlled fields rendered via innerHTML
+// (name, skills, etc.) — safe today only because DEMO_VOLUNTEERS is static.
+
 var ROSTER_SKILL_OPTIONS = [
   'Driving / Transport', 'Heavy lifting', 'Construction / Carpentry', 'Cooking / Food prep',
   'First aid / CPR', 'EMT / Medical', 'Childcare', 'Elder care', 'Animal care',
@@ -49,6 +58,11 @@ function volunteerAvailableDaysSummary(v) {
     .join(', ');
 }
 
+// NOTE: DEMO_SIGNUPS/DEMO_SHIFTS have no org-identity field, so this
+// treats every signup as belonging to "this org" — matching
+// renderOrgShifts()'s existing (equally unscoped) behavior elsewhere in
+// org.js. Proper org-scoping needs to land before this is wired to real
+// data.
 /** The membership gate: has org history (any signup, any status) OR opted
  * into discovery. Without this, every platform volunteer would show up for
  * every org. */
