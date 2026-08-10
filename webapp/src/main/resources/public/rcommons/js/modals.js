@@ -349,3 +349,54 @@ function submitLogHours() {
   renderHoursList();
   renderDashboardHours();
 }
+
+// ─── VOLUNTEER PROFILE PANEL (org view) ────────────────────────────────────
+
+function openVolunteerProfile(id) {
+  var v = DEMO_VOLUNTEERS.find(function(x) { return x.id === id; });
+  if (!v) return;
+
+  var hrsHere = hoursAtOrgForVolunteer(v.id);
+  document.getElementById('vp-avatar').textContent = v.initials;
+  document.getElementById('vp-name').textContent   = v.name;
+  document.getElementById('vp-role').textContent   = v.phone + ' · ' + hrsHere + ' hrs here · ' + v.hoursTotal + ' hrs total';
+
+  var classesEl = document.getElementById('vp-classes');
+  classesEl.innerHTML = v.classes.length
+    ? v.classes.map(function(c) {
+        return '<span class="role-chip"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="5" r="4"/><path d="M5 1v8M1 5h8"/></svg>' + c + '</span>';
+      }).join('')
+    : '<span class="role-chip" style="opacity:0.5;">None listed</span>';
+
+  var skillsEl = document.getElementById('vp-skills');
+  skillsEl.innerHTML = v.skills.length
+    ? v.skills.map(function(s) { return '<span class="skill-chip">' + s + '</span>'; }).join('')
+    : '<span class="skill-chip" style="opacity:0.5;">No skills listed</span>';
+
+  var gridEl = document.getElementById('vp-avail-grid');
+  renderAvailGrid(gridEl, v.availability, null);
+  gridEl.style.pointerEvents = 'none'; // read-only — orgs can't edit a volunteer's own availability
+
+  var signups = DEMO_SIGNUPS.filter(function(s) { return s.volunteerId === v.id; });
+  var shiftsEl = document.getElementById('vp-shifts-list');
+  shiftsEl.innerHTML = signups.length
+    ? signups.map(function(s) {
+        var shift = DEMO_SHIFTS.find(function(sh) { return sh.id === s.shiftId; });
+        var confirmed = s.status === 'CONFIRMED';
+        return '<div class="hours-item">' +
+          '<div class="hours-dot ' + (confirmed ? 'confirmed' : 'logged') + '"></div>' +
+          '<div class="hours-info">' +
+            '<div class="hours-title">' + (shift ? shiftTitle(shift) : 'Shift') + '</div>' +
+            '<div class="hours-org">' + (shift ? formatShiftTime(shift) : '') + '</div>' +
+          '</div>' +
+          '<span class="tag ' + (confirmed ? 'tag-done' : 'tag-dist') + '">' + s.status + '</span>' +
+        '</div>';
+      }).join('')
+    : '<div style="padding:8px 0;font-size:12px;color:var(--text-3);">No shifts with your org yet.</div>';
+
+  document.getElementById('volunteer-profile-panel').classList.add('open');
+}
+
+function closeVolunteerProfile() {
+  document.getElementById('volunteer-profile-panel').classList.remove('open');
+}

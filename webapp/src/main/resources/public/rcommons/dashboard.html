@@ -821,6 +821,45 @@
   </div>
 </div>
 
+<!-- ── VOLUNTEER PROFILE PANEL (org view) ── -->
+<div class="commit-panel" id="volunteer-profile-panel" onclick="if(event.target===this)closeVolunteerProfile()">
+  <div class="commit-modal">
+    <div class="modal-header">
+      <div class="modal-title">Volunteer profile</div>
+      <button class="modal-close" onclick="closeVolunteerProfile()"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="profile-section">
+        <div class="profile-header">
+          <div class="profile-avatar" id="vp-avatar">?</div>
+          <div><div class="profile-name" id="vp-name">Loading…</div><div class="profile-role" id="vp-role"></div></div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:6px;">Character class</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;" id="vp-classes"></div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:6px;">Skills</div>
+          <div class="skills-wrap" id="vp-skills"></div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:4px;">Availability</div>
+          <div class="avail-grid" id="vp-avail-grid">
+            <div class="avail-head"></div><div class="avail-head">Sun</div><div class="avail-head">Mon</div><div class="avail-head">Tue</div><div class="avail-head">Wed</div><div class="avail-head">Thu</div><div class="avail-head">Fri</div><div class="avail-head">Sat</div>
+          </div>
+        </div>
+        <div>
+          <div class="form-label" style="margin-bottom:4px;">Shifts with your org</div>
+          <div class="hours-list" id="vp-shifts-list"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeVolunteerProfile()">Close</button>
+    </div>
+  </div>
+</div>
+
 <!-- ── MOBILE BOTTOM NAV ── -->
 <nav class="mob-nav">
   <button class="mob-nav-item active" data-nav="dashboard" onclick="navTo('dashboard')">
