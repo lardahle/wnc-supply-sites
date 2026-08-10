@@ -389,7 +389,7 @@ function openVolunteerProfile(id) {
             '<div class="hours-title">' + (shift ? shiftTitle(shift) : 'Shift') + '</div>' +
             '<div class="hours-org">' + (shift ? formatShiftTime(shift) : '') + '</div>' +
           '</div>' +
-          '<span class="tag ' + (confirmed ? 'tag-done' : 'tag-dist') + '">' + s.status + '</span>' +
+          '<span class="tag ' + (confirmed ? 'tag-done' : 'tag-dist') + '">' + (confirmed ? 'Confirmed' : 'Canceled') + '</span>' +
         '</div>';
       }).join('')
     : '<div style="padding:8px 0;font-size:12px;color:var(--text-3);">No shifts with your org yet.</div>';
